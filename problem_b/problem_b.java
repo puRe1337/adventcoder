@@ -8,7 +8,10 @@ public class problem_b {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String s;
         Map<String, Integer> temp = new LinkedHashMap<>();
-        while((s = in.readLine()) != "stop") {
+        while((s = in.readLine()) != null) {
+            if(s.equals("stop")){
+                break;
+            }
             if (temp.containsKey(s)) {
                 temp.put(s, temp.get(s) + 1);
             } else {
