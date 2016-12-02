@@ -7,7 +7,7 @@
 
 int main( ) {
 	std::vector< std::pair< std::string, int > > presents;
-	
+
 	std::string line_str;
 	while ( std::getline( std::cin, line_str ) ) {
 		if ( line_str.compare( "stop" ) == 0 )
