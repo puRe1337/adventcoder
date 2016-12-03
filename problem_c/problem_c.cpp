@@ -76,13 +76,13 @@ int main( ) {
 		inputcounter++;
 	}
 	int x1 = input_x[ 0 ]; int y1 = input_y[ 0 ];
-    int x2 = input_x[ 1 ]; int y2 = input_y[ 1 ];
-    int x3 = input_x[ 2 ]; int y3 = input_y[ 2 ];
-    int x4 = input_x[ 3 ]; int y4 = input_y[ 3 ];
+	int x2 = input_x[ 1 ]; int y2 = input_y[ 1 ];
+	int x3 = input_x[ 2 ]; int y3 = input_y[ 2 ];
+	int x4 = input_x[ 3 ]; int y4 = input_y[ 3 ];
 
-	Point p1 = Point( x1, y1), q1 = Point( x2, y2 );
-	Point p2 = Point( x3, y3), q2 = Point( x4, y4 );
-	
+	Point p1 = Point( x1, y1 ), q1 = Point( x2, y2 );
+	Point p2 = Point( x3, y3 ), q2 = Point( x4, y4 );
+
 	if ( p1.equals( q2 ) || p2.equals( q1 ) )
 		std::cout << "not crossing\n";
 	else
