@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
-#include <string>
 #include <sstream>
 #include <vector>
-#include <cassert>
 #include <algorithm> 
 
 void split( const std::string& s, char delim, std::vector< std::string >& elems ) {
@@ -70,7 +68,6 @@ int main( ) {
 		std::string line_str;
 		std::getline( std::cin, line_str );
 		std::vector< std::string > splitted = split( line_str, ',' );
-		assert( splitted.size( ) == 2 );
 		input_x[ inputcounter ] = atoi( splitted.at( 0 ).c_str( ) );
 		input_y[ inputcounter ] = atoi( splitted.at( 1 ).c_str( ) );
 		inputcounter++;
