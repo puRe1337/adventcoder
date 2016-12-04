@@ -20,14 +20,19 @@ void printNewLine(int count ) {
 
 void printTree( int count ) {	
 	for ( int i = 0; i < count; i++ ) {
+		for ( int j = 0; j < i - 1; j++ ) {
+			printSpace( count - j - 1 );
+			printRaute( 3 + ( j * 2 ) );
+			printNewLine( 1 );
+		}
 		printSpace( count - i );
 		printRaute( ( i * 2 ) == 0 ? 1 : i * 2 + 1 );
 		printNewLine( 1 );
 		printSpace( count - 1 - i );
 		printRaute( 3 + ( i * 2 ) );
 		printNewLine( 1 );
-		printSpace( count - i );
-		printRaute( 1 + ( i * 2 ) );
+		printSpace( count );
+		printRaute( 1 );
 		printNewLine( 1 );
 	}
 }
