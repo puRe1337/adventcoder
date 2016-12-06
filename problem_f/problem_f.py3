@@ -1,10 +1,11 @@
 """
+Problem F - Code by Simon
 Testparameter: 3,3,5,3,2
 Testergebnis: 92.71
 """
 import math
 
-params_string = input("Parameter: ")
+params_string = input()
 params = params_string.split(",")   
 
 diameter = float(params[0])
@@ -18,4 +19,4 @@ marshmallow_volume = diameter * diameter * z * height
 negative = math.pi * (diameter / 2) **2 * z * height
 positive = (marshmallow_volume - negative ) * fieldsToFill
 
-print(round(positive, 2))
+print ("{:.2f}".format(positive))
