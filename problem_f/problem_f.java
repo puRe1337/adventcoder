@@ -29,7 +29,7 @@ public class problem_f {
         double negative = Math.PI * ( double )( ( double )diameter / 2 * ( double )diameter / 2 ) * z * height;
         double positive = ( ( double )marshmallow_volume - negative ) * ( double )fieldsToFill;
 
-        System.out.println(Math.round(positive * 100.0) / 100.0);
+        System.out.println(String.format(java.util.Locale.US,"%.2f", Math.round(positive * 100.0) / 100.0));
     }
 
 }
