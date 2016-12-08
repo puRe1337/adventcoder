@@ -5,84 +5,94 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class problem_g {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String s;
         String result = "";
-        while((s = in.readLine()) != null){
-            if(s.isEmpty()){
+        while ((s = in.readLine()) != null) {
+            if (s.isEmpty()) {
                 break;
             }
             List<Character> chars = new ArrayList<>();
-            for(char c : s.toCharArray()){
+            for (char c : s.toCharArray()) {
                 chars.add(c);
             }
-            for(int i = 0; i < chars.size(); i++){
-                for(int j = 0; j < chars.size(); j++){
-                    if(chars.get(j).equals(' ') && chars.get(j+1).equals(' ')){
-                        chars.remove(j+1);
+            for (int i = 0; i < chars.size(); i++) {
+                for (int j = 0; j < chars.size(); j++) {
+                    if (chars.get(j).equals(' ') && chars.get(j + 1).equals(' ')) {
+                        chars.remove(j + 1);
                     }
                 }
             }
             StringBuilder builder = new StringBuilder(chars.size());
-            for(Character ch : chars){
+            for (Character ch : chars) {
                 builder.append(ch);
             }
             String temp = builder.toString();
             String[] words = temp.split(" ");
             boolean caps = false;
-            boolean capsFlag = false;
-            for(int i = 0; i < words.length; i++){
+            for (int i = 0; i < words.length; i++) {
                 char[] currentWord = words[i].toCharArray();
-                for(int j = 0; j < currentWord.length; j++){
-                    if(Character.isUpperCase(currentWord[j]) && j != 0){
-                        if(capsFlag == true){
-                            result+=currentWord[j];
-                            continue;
-                        }
-                        int cnt = 0;
-                        for(int k = 0; k < words[i].length(); k++){
-                            if(Character.isUpperCase(words[i].charAt(k))){
-                                cnt++;
-                            }
-                        }
-                        if(cnt == words[i].length()){
-                            result+=currentWord[j];
-                            capsFlag = true;
-                            continue;
-                        }else{
-                            capsFlag = false;
-                            result+=Character.toLowerCase(currentWord[j]);
-                            continue;
-                        }
-                    }else if(j == 0){
-                        result += currentWord[j];
+                for (int j = 0; j < currentWord.length; j++) {
+                    if (currentWord[j] == ' ') {
                         continue;
                     }
-                    if(caps){
-                        result+= Character.toUpperCase(currentWord[j]);
+                    if (caps) {
+                        result += Character.toUpperCase(currentWord[j]);
                         caps = false;
                         continue;
                     }
-                    if(currentWord[j] == '!' || currentWord[j] == '.' || currentWord[j] == '?'){
-                        if(j == currentWord.length-1){
-                            System.out.println("test" + " " + currentWord[j]);
-                            result+=currentWord[j];
-                            continue;
-                        }
-                        else if(currentWord[j+1] != ' '){
-                            result+=currentWord[j] + " ";
-                            caps = true;
+                    if (currentWord[j] == '.' || currentWord[j] == '!' || currentWord[j] == '?') {
+                        if (j != currentWord.length - 1) {
+                            if (currentWord[j + 1] != ' ') {
+                                result += currentWord[j] + " ";
+                                caps = true;
+                            }
+                        } else {
+                            result += currentWord[j];
                             continue;
                         }
                     }
-                    result+=currentWord[j];
+                    if (Character.isUpperCase(currentWord[j])) {
+                        if (isAllCaps(words[i])) {
+                            result += currentWord[j];
+                            continue;
+                        } else if (j == 0) {
+                            result += currentWord[j];
+                            continue;
+                        } else {
+                            result += Character.toLowerCase(currentWord[j]);
+                            continue;
+                        }
+                    }
+                    result += currentWord[j];
                 }
-                capsFlag = false;
-                result+= " ";
+                if (i == words.length - 1) {
+                    continue;
+                } else {
+                    result += " ";
+                }
             }
-            result+="\n";
+
+            result += "\n";
         }
         System.out.println(result);
     }
+
+    static boolean isAllCaps(String word){
+        int cnt = 0;
+        for(int i = 0; i < word.length(); i++){
+            if(Character.isUpperCase(word.charAt(i))){
+                cnt++;
+            } else if(!Character.isAlphabetic(word.charAt(i))){
+                cnt++;
+            }
+        }
+        if(cnt == word.length()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
+
