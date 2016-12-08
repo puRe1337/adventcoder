@@ -8,8 +8,8 @@ public class problem_g {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String s;
-        String result = "";
         while ((s = in.readLine()) != null) {
+            String result = "";
             if (s.isEmpty()) {
                 break;
             }
@@ -73,10 +73,8 @@ public class problem_g {
                     result += " ";
                 }
             }
-
-            result += "\n";
+            System.out.println(result);
         }
-        System.out.println(result);
     }
 
     static boolean isAllCaps(String word){
@@ -95,4 +93,3 @@ public class problem_g {
         }
     }
 }
-
