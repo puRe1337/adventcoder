@@ -17,6 +17,15 @@ std::vector< std::string > split( std::string& s, char find ) {
 	return elements;
 }
 
+bool is_upper( const std::string& str ) {
+	int upper = 0;
+	for ( size_t i = 0; i < str.size( ); i++ ) {
+		if ( isupper( str.at( i ) ) )
+			upper++;
+	}
+	return upper == str.size(  );
+}
+
 
 int main( ) {
 	std::string line_str;
@@ -24,12 +33,12 @@ int main( ) {
 	std::vector< std::string > splitted = split( line_str, ' ' );
 
 
-	for ( int i = 0; i < splitted.size( ); i++ ) {
+	for ( size_t i = 0; i < splitted.size( ); i++ ) {
 		std::string cur_str = splitted.at( i );
-		for ( int j = 0; j < cur_str.size( ); j++ ) {
+		for ( size_t j = 0; j < cur_str.size( ); j++ ) {
 			if ( isspace( cur_str.at( j ) ) && isspace( cur_str.at( j + 1 ) ) )
 				cur_str.erase( cur_str.begin( ) + j + 1 );
-			if ( j != 0 && isupper( cur_str.at( j ) ) )
+			if ( j != 0 && isupper( cur_str.at( j ) ) && !is_upper( cur_str ) )
 				cur_str.at( j ) = tolower( cur_str.at( j ) );
 		}
 		splitted.at( i ) = cur_str;
@@ -41,7 +50,7 @@ int main( ) {
 			lul != splitted.back( ) ? out_str += lul += std::string( " " ) : out_str += lul;
 		}
 	}
-	for ( int i = 0; i < out_str.size( ); i++ ) {
+	for ( size_t i = 0; i < out_str.size( ); i++ ) {
 		if ( out_str.at( i ) == '.' || out_str.at( i ) == '!' || out_str.at( i ) == '?' )
 			out_str.insert( i, "hallo" );
 	}
