@@ -10,8 +10,7 @@ def splitup(cancle):
     splitted = cancle.split(" ")
     for d in splitted:
         value += int(d)
-        value2 += int(d*60)
-    return value2 / value
+    return int(value * (40 / 6) - 40/6)
 
 
 def main():
