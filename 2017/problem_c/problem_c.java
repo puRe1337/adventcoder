@@ -16,15 +16,16 @@ public class problem_c {
                 }
             }
             int res = 0;
+            int res2 = 0;
             for(int i : candles){
-                res+=i*60;
+                //res+=i*60;
+                res2+=i;
             }
-            res = res / candles.size();
-            results.add(res);
+            results.add((res2*6) - (res2*6) % 5);
             res = 0;
+            res2 = 0;
+            candles.clear();
         }
-        for(int i : results){
-            System.out.println(i);
-        }
+        for(int i : results) System.out.println(i);
     }
 }
