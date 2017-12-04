@@ -20,6 +20,7 @@ int main() {
 		if (snow_incr.find(current_line) == snow_incr.end())
 			return 1;
 		snow_height += snow_incr[current_line];
+		if(snow_height < 0) snow_height = 0;
 		std::cout << snow_height << std::endl;
 	}
 	return 1;
