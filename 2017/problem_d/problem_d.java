@@ -20,8 +20,10 @@ public class problem_d {
         keys.put("sunshine", -1);
         while(!(s = in.readLine()).equals("end")){
             curSnow = curSnow + keys.get(s);
+            if(curSnow < 0) curSnow = 0;
+            System.out.println(curSnow);
             results.add(curSnow);
         }
-        for(int i : results) System.out.println(i);
+        //for(int i : results) System.out.println(i);
     }
 }
