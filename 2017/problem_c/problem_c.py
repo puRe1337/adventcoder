@@ -6,14 +6,14 @@ def roundint(value, base=5):
 
 def splitup(cancle):
     value = 0
-    value2 = 0
     splitted = cancle.split(" ")
     for d in splitted:
         value += int(d)
-    return int(value * (40 / 6) - 40/6)
+    return int(value)
 
 
 def main():
+    first = True
     while True:
         candles = input("")
         if candles == "end":
