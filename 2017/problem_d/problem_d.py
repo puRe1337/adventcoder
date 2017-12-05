@@ -12,4 +12,6 @@ while True:
     if curr_line == "end":
         break
     snow_height += snow_incr[curr_line]
+    if snow_height < 0:
+        snow_height = 0
     print(snow_height)
