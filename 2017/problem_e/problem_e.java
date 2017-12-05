@@ -39,7 +39,7 @@ public class problem_e {
                 temp.remove(temp.indexOf(s.charAt(i)));
             }else if(s.charAt(i) == ' '){
                 res+= ' ';
-            }else if(s.charAt(i) == '.' || s.charAt(i) == ','){
+            }else if(s.charAt(i) == '.' || s.charAt(i) == ',' || s.charAt(i) == ';' || s.charAt(i) == ':'){
 
             }
             else{
@@ -49,7 +49,7 @@ public class problem_e {
                 blockflag = true;
             }
         }
-        if(temp.size() == 0){
+        if(temp.size() == 0 && !res.equals("SANTA CLAUS")){
             System.out.println(res);
         }
 
